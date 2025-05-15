@@ -16,7 +16,7 @@ pub fn validate_crc(app_descriptor: &AppImageDescriptor) -> bool {
     // TODO - integrate imxrt CRC hardware engine for computation
     use crc::*;
 
-    let crc_engine = Crc::<u32>::new(&CRC_32_CKSUM);
+    let crc_engine = Crc::<u32>::new(&CRC_32_ISO_HDLC);
     let mut digest = crc_engine.digest();
     const VPAGE_SIZE: usize = 1024; // a chunk size "virtual page" that aligns with most page boundary multiples
     let num_pages = (app_descriptor.image_size_bytes as usize).div_ceil(VPAGE_SIZE);
