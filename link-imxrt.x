@@ -3,16 +3,16 @@
  *  there or on any of the overlays. 
  */
 MEMORY {
-  IRAM               : ORIGIN = 0x00020000, LENGTH = 24K
-  RAM                : ORIGIN = 0x20026000, LENGTH = 8K
+  IRAM               : ORIGIN = 0x0010E000, LENGTH = 24K
+  RAM                : ORIGIN = 0x20116000, LENGTH = 32K
   CONFIG_FLASH_OTFAD : ORIGIN = 0x08000000, LENGTH = 1024
   CONFIG_FLASH_FCB   : ORIGIN = 0x08000400, LENGTH = 512
   CONFIG_FLASH_BIV   : ORIGIN = 0x08000600, LENGTH = 4
-  FLASH              : ORIGIN = 0x08001000, LENGTH = 1M
+  FLASH              : ORIGIN = 0x08001000, LENGTH = 24K
 }
 
-/* link descriptors at FLASH address after 32KB Bootloader Range */
-__bootable_region_descriptors_address = 0x08009000;
+/* link descriptors at FLASH address after 24KB Bootloader Range */
+__bootable_region_descriptors_address = ORIGIN(FLASH) + LENGTH(FLASH);
 
 __bootloader_ivec_size = 0x130;        /*  */
 
