@@ -1,0 +1,28 @@
+artifacts_path = "./artifacts"
+
+key_type = "rsa3072"
+
+rkth_path = "./artifacts/rkth.txt"
+otp_path = "./artifacts/otp_master_key.txt"
+
+certificates = [
+    [
+        { path = "./artifacts/cert-rot1.pem", prototype = { key_path = "./artifacts/cert-rot1-ca-key.pem", key_type = "rsa3072" } },
+        { path = "./artifacts/cert-img1.pem", prototype = { key_path = "./artifacts/cert-img1-user-key.pem", key_type = "rsa3072" } },
+    ],
+    [
+        { path = "./artifacts/cert-rot2.pem", prototype = { key_path = "./artifacts/cert-rot2-ca-key.pem", key_type = "rsa3072" } },
+        { path = "./artifacts/cert-img2.pem", prototype = { key_path = "./artifacts/cert-img2-user-key.pem", key_type = "rsa3072" } },
+    ],
+]
+
+[bootloader]
+flash_start = 0x08001000
+run_start = 0x10170000
+max_size = 0x8000
+state = { start = 0x0800B000, size = 0x2000 }
+
+[application]
+slot_starts = [0x800D000, 0x80F9000]
+run_start = 0x10020000
+slot_size = 0xEC000                  # 944K
