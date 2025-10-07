@@ -769,11 +769,11 @@ pub mod field_sets {
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct SecBootCfg5 {
         /// The internal bits
-        bits: [u8; 2],
+        bits: [u8; 4],
     }
 
     impl ::device_driver::FieldSet for SecBootCfg5 {
-        const SIZE_BITS: u32 = 16;
+        const SIZE_BITS: u32 = 32;
         fn new_with_zero() -> Self {
             Self::new_zero()
         }
@@ -788,11 +788,11 @@ pub mod field_sets {
     impl SecBootCfg5 {
         /// Create a new instance, loaded with the reset value (if any)
         pub const fn new() -> Self {
-            Self { bits: [0, 0] }
+            Self { bits: [0, 0, 0, 0] }
         }
         /// Create a new instance, loaded with all zeroes
         pub const fn new_zero() -> Self {
-            Self { bits: [0; 2] }
+            Self { bits: [0; 4] }
         }
 
         ///Read the `revoke_rootkey` field of the register.
@@ -924,13 +924,13 @@ pub mod field_sets {
         }
     }
 
-    impl From<[u8; 2]> for SecBootCfg5 {
-        fn from(bits: [u8; 2]) -> Self {
+    impl From<[u8; 4]> for SecBootCfg5 {
+        fn from(bits: [u8; 4]) -> Self {
             Self { bits }
         }
     }
 
-    impl From<SecBootCfg5> for [u8; 2] {
+    impl From<SecBootCfg5> for [u8; 4] {
         fn from(val: SecBootCfg5) -> Self {
             val.bits
         }

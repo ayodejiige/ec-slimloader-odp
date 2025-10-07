@@ -255,7 +255,7 @@
         "type": "register",
         "access": "RW",
         "address": 101,
-        "size_bits": 16,
+        "size_bits": 32,
         "fields": {
             "revoke_rootkey": {
                 "base": "uint",
