@@ -95,7 +95,7 @@ pub async fn start<B: Board, const JOURNAL_BUFFER_SIZE: usize>(config: B::Config
     let mut state: State = match state {
         Some(state) => {
             info!("Latest state fetched from journal: {:?}", state);
-            if B::Config::is_valid_state(&state) {
+            if B::Config::is_valid_state(state) {
                 *state
             } else {
                 let default_state = B::Config::default_state();
