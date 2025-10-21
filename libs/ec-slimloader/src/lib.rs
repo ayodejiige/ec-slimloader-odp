@@ -112,7 +112,7 @@ pub async fn start<B: Board, const JOURNAL_BUFFER_SIZE: usize>(config: B::Config
                 "Initial bootup and no state was loaded into the journal, attempting {:?}",
                 default_state
             );
-           default_state
+            default_state
         }
     };
 
